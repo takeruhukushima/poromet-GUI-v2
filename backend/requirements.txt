@@ -1,0 +1,8 @@
+fastapi>=0.68.0,<0.69.0
+uvicorn>=0.15.0,<0.16.0
+pydantic>=1.8.0,<2.0.0
+numpy>=1.21.0
+scikit-image>=0.18.0
+porespy>=2.0.0
+matplotlib>=3.4.0
+python-multipart>=0.0.5
