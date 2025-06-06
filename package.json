@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && pip3 install -r requirements.txt",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "pip install -r requirements.txt --target . && next build"
+  },
+  "vercel": {
+    "buildCommand": "pip install -r requirements.txt --target . && next build",
+    "outputDirectory": ".next"
   },
   "engines": {
     "node": ">=16.0.0"
