@@ -1,10 +1,15 @@
-fastapi==0.68.0
-uvicorn==0.15.0
-python-multipart==0.0.5
-numpy==1.21.0
-matplotlib==3.4.3
-Pillow==9.0.0
+--find-links https://download.pytorch.org/whl/torch_stable.html
+--extra-index-url https://pypi.org/simple
 
-# 以下のパッケージはVercelでのビルドに問題を引き起こす可能性があるためコメントアウト
-# scikit-image
-# porespy
+# 軽量なバージョンを使用
+fastapi>=0.68.0,<0.69.0
+uvicorn[standard]>=0.15.0,<0.16.0
+python-multipart>=0.0.5,<0.0.6
+
+# バイナリ配布パッケージを使用
+numpy>=1.21.0,<1.22.0; python_version >= '3.7' and platform_machine != 'aarch64'
+numpy>=1.21.0,<1.22.0; python_version >= '3.7' and platform_machine == 'aarch64' and platform_python_implementation != 'PyPy'
+
+# その他の依存関係
+matplotlib>=3.4.3,<3.5.0; python_version >= '3.7'
+Pillow>=9.0.0,<10.0.0; python_version >= '3.7'

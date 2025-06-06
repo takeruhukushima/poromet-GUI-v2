@@ -1,13 +1,46 @@
 {
   "version": 2,
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build" },
-    { "src": "api/**.py", "use": "@vercel/python" },
-    { "src": "backend/**.py", "use": "@vercel/python" }
+    { 
+      "src": "package.json", 
+      "use": "@vercel/static-build",
+      "config": { 
+        "maxLambdaSize": "15mb",
+        "includeFiles": ["**"]
+      }
+    },
+    { 
+      "src": "api/**.py", 
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
+    },
+    { 
+      "src": "backend/**.py", 
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
+    }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/backend/(.*)", "dest": "/backend/$1" },
     { "src": "/(.*)", "dest": "/" }
-  ]
+  ],
+  "build": {
+    "env": {
+      "NODE_VERSION": "18.x",
+      "PYTHON_VERSION": "3.9"
+    }
+  },
+  "functions": {
+    "api/**/*.py": {
+      "maxDuration": 30
+    },
+    "backend/**/*.py": {
+      "maxDuration": 30
+    }
+  }
 }
