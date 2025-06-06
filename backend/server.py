@@ -1,15 +1,11 @@
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend
+import matplotlib.pyplot as plt
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.responses import JSONResponse, FileResponse, Response
 from fastapi.middleware.cors import CORSMiddleware
-import porespy
-import numpy as np
-import matplotlib.pyplot as plt
-import skimage.io
 import os
-import tempfile
-import zipfile
-from datetime import datetime
-from skimage.filters import threshold_otsu
 from PIL import Image
 import io
 import json
