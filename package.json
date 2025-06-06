@@ -7,17 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "pip install -r requirements.txt --target . && next build"
+    "vercel-build": "npm run build"
   },
   "vercel": {
-    "buildCommand": "pip install -r requirements.txt --target . && next build",
-    "outputDirectory": ".next"
+    "buildCommand": "npm run build"
   },
   "engines": {
     "node": ">=16.0.0"
   },
-  "vercel-build": "pip3 install -r requirements.txt && next build",
-  "now-build": "pip3 install -r requirements.txt && next build",
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",
